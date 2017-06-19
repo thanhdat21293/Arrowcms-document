@@ -8,6 +8,11 @@ module.exports = function (component) {
             get: {
                 handler: controller.index
             }
+        },
+        "/page/:page": {
+            get: {
+                handler: controller.index
+            }
         }
     }
 };

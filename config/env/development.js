@@ -4,13 +4,13 @@ module.exports = {
     /**
      * Uncomment to override config in development environment
      */
-    port: process.env.PORT || 8000,
+    port: process.env.PORT || 7000,
     db: {
        host: 'localhost',
-       port: '5432',
+       port: '5433',
        database: 'arrowjs',
        username: 'postgres',
-       password: '123456',
+       password: 'abc',
        dialect: 'postgres',
        logging: false
     },

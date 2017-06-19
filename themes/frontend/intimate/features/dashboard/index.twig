@@ -1,0 +1,93 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+
+    {% for post in posts %}
+    <article>
+        <!-- Blog item Start -->
+        <div class="blog-item-wrap">
+            <!-- Post Format icon Start -->
+            <div class="post-format">
+                <span><i class="fa fa-camera"></i></span>
+            </div><!-- Post Format icon End -->
+            <h2 class="blog-title"><a href=
+            "single.html">{{ post.title }}</a></h2><!-- Entry Meta Start-->
+            <div class="entry-meta">
+                <span class="meta-part">
+                    <i class="ico-user"></i>
+                    <a href="#">{{ post.user.display_name }}</a>
+                </span>
+                <span class="meta-part">
+                    <i class="ico-calendar-alt-fill"></i>
+                    <a href="#">{{ post.published_at | moment('DD-MM-YYYY') }}</a>
+                </span>
+                <span class="meta-part">
+                    <i class="ico-comments"></i>
+                    <a href="#">20</a>
+                </span>
+                <span class="meta-part">
+                    <i class="ico-tag"></i>
+                    <a href="#">Tech</a>
+                </span>
+                <span class="meta-part">
+                    <i class="ico-star"></i>
+                    <a href="#">7.5</a>
+                </span>
+            </div><!-- Entry Meta End-->
+            <!-- Feature inner Start -->
+            {% if post.image %}
+            <div class="feature-inner">
+                <a data-lightbox="roadtrip" href="{{ post.image }}">
+                    <img alt="" src="{{ post.image }}">
+                </a>
+            </div>
+            {% endif %}
+            <!-- Feature inner End -->
+            <!-- Post Content Start -->
+            <div class="post-content">
+                {{ post.intro_text | safe }}
+            </div><!-- Post Content End -->
+            <div class="entry-more">
+                <div class="pull-left">
+                    <a class="btn btn-common" href=
+                    "single.html">Read More <i class=
+                    "ico-arrow-right"></i></a>
+                </div>
+                <div class="share-icon pull-right">
+                    <span class="socialShare"></span>
+                </div>
+            </div>
+        </div><!-- Blog item End -->
+    </article>
+    {% endfor %}
+
+    {% if totalPage > 1 %}
+    <article>
+        <!-- Pagination Start -->
+        <ul class="pager">
+            <li class="previous">
+                <a href="#"><i class="ico-arrow-left"></i>
+                Previous</a>
+            </li>
+            <li style="list-style: none">
+                {% for i in range(1, totalPage + 1) %}
+                    {% if i === page %}
+                        <span class="active">
+                            <a href="javascript:void(0)">{{ i }}</a>
+                        </span>
+                    {% else %}
+                        <span class="">
+                            <a href="/page/{{ i }}">{{ i }}</a>
+                        </span>
+                    {% endif %}
+                {% endfor %}
+            </li>
+            <li class="next">
+                <a href="#">Next <i class=
+                "ico-arrow-right"></i></a>
+            </li>
+        </ul><!-- Pagination End -->
+    </article>
+    {% endif %}
+
+{% endblock %}
