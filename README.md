@@ -38,8 +38,8 @@ Cấu trúc cơ bản của 1 theme
 └── theme.json      
 ```
 - assets: Thư mục lưu các file css, jquery, image
-- features: Lưu các file chính của website
-- layouts: 
+- features: Lưu các file theo features
+- layouts: Một số file khác
 - widgets: 
 - screenshot.png: Ảnh đại diện của theme
 - theme.json: Để hệ thống có thể nhận được theme này.
