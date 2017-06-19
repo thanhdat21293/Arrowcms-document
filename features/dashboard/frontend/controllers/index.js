@@ -20,7 +20,7 @@ module.exports = function (controller, component, application) {
             offset: (page - 1) * itemOfPage
         })
             .then(data => {
-                console.log(data.rows)
+                //console.log(data.rows)
                 totalPage = Math.ceil(data.count/itemOfPage);
                 res.frontend.render('index', {
                     postTitle: 'Blog page',

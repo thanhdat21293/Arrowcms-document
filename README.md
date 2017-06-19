@@ -138,7 +138,7 @@ Trong frontend:
 ![frontend](upload/3.jpg)
 
 
-Bước 9: Chia nhỏ file
+#### Bước 9: Chia nhỏ file
 
 1) Copy tất cả nội dung file index.html vào file __layout.twig_
 
@@ -330,177 +330,177 @@ Bước 9: Chia nhỏ file
     
 5) Copy chỗ thẻ _article_ vào file _index.twig_
 
-Ở đây mình chỉ lấy 1 _article_, bỏ _article_ còn lại.
-
-_article_ cuối cùng là phân trang nên sẽ giữ lại
-
-File _index.twig_
-```
-{% extends "_layout.twig" %}
-
-{% block content %}
-<article>
-    <!-- Blog item Start -->
-    <div class="blog-item-wrap">
-        <!-- Post Format icon Start -->
-        <div class="post-format">
-            <span><i class="fa fa-camera"></i></span>
-        </div><!-- Post Format icon End -->
-        <h2 class="blog-title"><a href=
-        "single.html">Personal Blog and Portfolio
-        Template</a></h2><!-- Entry Meta Start-->
-        <div class="entry-meta">
-            <span class="meta-part"><i class=
-            "ico-user"></i> <a href="#">James
-            Maclern</a></span> <span class=
-            "meta-part"><i class=
-            "ico-calendar-alt-fill"></i> <a href=
-            "#">January 7, 2015</a></span> <span class=
-            "meta-part"><i class="ico-comments"></i>
-            <a href="#">20</a></span> <span class=
-            "meta-part"><i class="ico-tag"></i> <a href=
-            "#">Tech</a></span> <span class=
-            "meta-part"><i class="ico-star"></i> <a href=
-            "#">7.5</a></span>
-        </div><!-- Entry Meta End-->
-        <!-- Feature inner Start -->
-        <div class="feature-inner">
-            <a data-lightbox="roadtrip" href=
-            "img/blog/blog-01.jpg"><img alt="" src=
-            "img/blog/blog-01.jpg"></a>
-        </div><!-- Feature inner End -->
-        <!-- Post Content Start -->
-        <div class="post-content">
-            <p>Internet Explorer has long been the bane of
-            many Web developers’ existence, but here’s some
-            news to brighten your day: Internet Explorer 8,
-            9 and 10 are <a href=
-            "https://www.microsoft.com/en-us/WindowsForBusiness/End-of-IE-support"
-            target="_blank">reaching&nbsp;‘end of life’ on
-            Tuesday</a>, meaning they’re no longer
-            supported by Microsoft.</p>
-            <p>A patch, <a href=
-            "https://support.microsoft.com/en-us/kb/3123303?sd=rss&amp;spid=14019"
-            target="_blank">which goes live on January
-            12</a>, will nag Internet Explorer users on
-            launch to upgrade to a modern browser. <a href=
-            "https://support.microsoft.com/en-us/kb/3123303?sd=rss&amp;spid=14019"
-            target="_blank">KB3123303</a> adds the&nbsp;nag
-            box, which will appear for Windows 7 and Server
-            2008 R2 users still using the old browsers
-            after installing the update.</p>
-            <p>It’s great news for developers who still
-            need to target older browsers — not needing to
-            worry about whether or not modern CSS works in
-            these browsers is a dream, and it’s much closer
-            with this move.</p>
-        </div><!-- Post Content End -->
-        <div class="entry-more">
-            <div class="pull-left">
-                <a class="btn btn-common" href=
-                "single.html">Read More <i class=
+    Ở đây mình chỉ lấy 1 _article_, bỏ _article_ còn lại.
+    
+    _article_ cuối cùng là phân trang nên sẽ giữ lại
+    
+    File _index.twig_
+    ```
+    {% extends "_layout.twig" %}
+    
+    {% block content %}
+    <article>
+        <!-- Blog item Start -->
+        <div class="blog-item-wrap">
+            <!-- Post Format icon Start -->
+            <div class="post-format">
+                <span><i class="fa fa-camera"></i></span>
+            </div><!-- Post Format icon End -->
+            <h2 class="blog-title"><a href=
+            "single.html">Personal Blog and Portfolio
+            Template</a></h2><!-- Entry Meta Start-->
+            <div class="entry-meta">
+                <span class="meta-part"><i class=
+                "ico-user"></i> <a href="#">James
+                Maclern</a></span> <span class=
+                "meta-part"><i class=
+                "ico-calendar-alt-fill"></i> <a href=
+                "#">January 7, 2015</a></span> <span class=
+                "meta-part"><i class="ico-comments"></i>
+                <a href="#">20</a></span> <span class=
+                "meta-part"><i class="ico-tag"></i> <a href=
+                "#">Tech</a></span> <span class=
+                "meta-part"><i class="ico-star"></i> <a href=
+                "#">7.5</a></span>
+            </div><!-- Entry Meta End-->
+            <!-- Feature inner Start -->
+            <div class="feature-inner">
+                <a data-lightbox="roadtrip" href=
+                "img/blog/blog-01.jpg"><img alt="" src=
+                "img/blog/blog-01.jpg"></a>
+            </div><!-- Feature inner End -->
+            <!-- Post Content Start -->
+            <div class="post-content">
+                <p>Internet Explorer has long been the bane of
+                many Web developers’ existence, but here’s some
+                news to brighten your day: Internet Explorer 8,
+                9 and 10 are <a href=
+                "https://www.microsoft.com/en-us/WindowsForBusiness/End-of-IE-support"
+                target="_blank">reaching&nbsp;‘end of life’ on
+                Tuesday</a>, meaning they’re no longer
+                supported by Microsoft.</p>
+                <p>A patch, <a href=
+                "https://support.microsoft.com/en-us/kb/3123303?sd=rss&amp;spid=14019"
+                target="_blank">which goes live on January
+                12</a>, will nag Internet Explorer users on
+                launch to upgrade to a modern browser. <a href=
+                "https://support.microsoft.com/en-us/kb/3123303?sd=rss&amp;spid=14019"
+                target="_blank">KB3123303</a> adds the&nbsp;nag
+                box, which will appear for Windows 7 and Server
+                2008 R2 users still using the old browsers
+                after installing the update.</p>
+                <p>It’s great news for developers who still
+                need to target older browsers — not needing to
+                worry about whether or not modern CSS works in
+                these browsers is a dream, and it’s much closer
+                with this move.</p>
+            </div><!-- Post Content End -->
+            <div class="entry-more">
+                <div class="pull-left">
+                    <a class="btn btn-common" href=
+                    "single.html">Read More <i class=
+                    "ico-arrow-right"></i></a>
+                </div>
+                <div class="share-icon pull-right">
+                    <span class="socialShare"></span>
+                </div>
+            </div>
+        </div><!-- Blog item End -->
+    </article>
+    
+    <article>
+        <!-- Pagination Start -->
+        <ul class="pager">
+            <li class="previous">
+                <a href="#"><i class="ico-arrow-left"></i>
+                Previous</a>
+            </li>
+            <li style="list-style: none"><span class=
+            "active"><a href="#">1</a></span> <span><a href=
+            "#">2</a></span> <span><a href="#">3</a></span>
+            <span><a href="#">4</a></span> <span><a href=
+            "#">5</a></span></li>
+            <li class="next">
+                <a href="#">Next <i class=
                 "ico-arrow-right"></i></a>
-            </div>
-            <div class="share-icon pull-right">
-                <span class="socialShare"></span>
-            </div>
-        </div>
-    </div><!-- Blog item End -->
-</article>
-
-<article>
-    <!-- Pagination Start -->
-    <ul class="pager">
-        <li class="previous">
-            <a href="#"><i class="ico-arrow-left"></i>
-            Previous</a>
-        </li>
-        <li style="list-style: none"><span class=
-        "active"><a href="#">1</a></span> <span><a href=
-        "#">2</a></span> <span><a href="#">3</a></span>
-        <span><a href="#">4</a></span> <span><a href=
-        "#">5</a></span></li>
-        <li class="next">
-            <a href="#">Next <i class=
-            "ico-arrow-right"></i></a>
-        </li>
-    </ul><!-- Pagination End -->
-</article>
-
-{% endblock %}
-```
-
-- extends: nó sẽ kế thừa tất cả nội dung của __layout.twig_
-- _{% block content %} ... {% endblock %}_ : Để thay thế nội dung trong _block content_ của thằng cha nó.
+            </li>
+        </ul><!-- Pagination End -->
+    </article>
+    
+    {% endblock %}
+    ```
+    
+    - extends: nó sẽ kế thừa tất cả nội dung của __layout.twig_
+    - _{% block content %} ... {% endblock %}_ : Để thay thế nội dung trong _block content_ của thằng cha nó.
 
 
 6) File __layout.twig_ 
 
-Mình chỉ copy phần thay đổi thôi
-
-```
-<!-- Header Section Start -->
-    {% include "_header.twig" %}
-    <!-- Content Start -->
-    <div id="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <!-- Blog Article Start-->
-                    {% block content %}
-
-                    {% endblock %}
-                    <!-- Blog Article End-->
-                </div>
-                <div class="col-md-4">
-                    {% include "_right_sidebar.twig" %}
+    Mình chỉ copy phần thay đổi thôi
+    
+    ```
+    <!-- Header Section Start -->
+        {% include "_header.twig" %}
+        <!-- Content Start -->
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- Blog Article Start-->
+                        {% block content %}
+    
+                        {% endblock %}
+                        <!-- Blog Article End-->
+                    </div>
+                    <div class="col-md-4">
+                        {% include "_right_sidebar.twig" %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </div><!-- Content End -->
-    <!-- Footer Start -->
-    {% include "_footer.twig" %}
-<!-- Footer End -->
-```
-
-Do _index.twig_ kế thừa từ __layout.twig_ nên ở đây ta sẽ ko gọi _include "index.twig"_.
-
-Ta sẽ dùng 
-
-```
-{% block content %}
-
-{% endblock %}
-```
-
-Tại sao sử dụng {% block content %}... thì xem ở ngay trên sẽ thấy.
+        </div><!-- Content End -->
+        <!-- Footer Start -->
+        {% include "_footer.twig" %}
+    <!-- Footer End -->
+    ```
+    
+    Do _index.twig_ kế thừa từ __layout.twig_ nên ở đây ta sẽ ko gọi _include "index.twig"_.
+    
+    Ta sẽ dùng 
+    
+    ```
+    {% block content %}
+    
+    {% endblock %}
+    ```
+    
+    Tại sao sử dụng {% block content %}... thì xem ở ngay trên sẽ thấy.
 
 7) Chỉnh lại đường dẫn cho file css, js
 
-Trong file __layout.twig_
-
-``` 
-    <link href="css/bootstrap.min.css" madia="screen" rel="stylesheet" type="text/css">
-    <script src="js/jquery-min.js" type="text/javascript"></script>
-```
-
-Sửa thành
-
-``` 
-    <link href="/frontend/<folder theme>/assets/css/bootstrap.min.css" madia="screen" rel="stylesheet" type="text/css">
-    <script src="/frontend/<folder theme>/assets/js/jquery-min.js" type="text/javascript"></script>
-```
-
-Ở đây mình ví dụ 2 file, còn khi làm chúng ta sẽ sửa tất cả.
-
-Sau khi sửa xong giao diện sẽ như này:
+    Trong file __layout.twig_
+    
+    ``` 
+        <link href="css/bootstrap.min.css" madia="screen" rel="stylesheet" type="text/css">
+        <script src="js/jquery-min.js" type="text/javascript"></script>
+    ```
+    
+    Sửa thành
+    
+    ``` 
+        <link href="/frontend/<folder theme>/assets/css/bootstrap.min.css" madia="screen" rel="stylesheet" type="text/css">
+        <script src="/frontend/<folder theme>/assets/js/jquery-min.js" type="text/javascript"></script>
+    ```
+    
+    Ở đây mình ví dụ 2 file, còn khi làm chúng ta sẽ sửa tất cả.
+    
+    Sau khi sửa xong giao diện sẽ như này:
 
 ![Giao diện](upload/6.jpg)
 
 
 ## Hiển thị blog, phân trang
 
-Bước 1: Chỉnh sửa số post trên 1 trang
+#### Bước 1: Chỉnh sửa số post trên 1 trang
 
 Đường dẫn: _/config/view.js_
 
@@ -514,13 +514,13 @@ pagination: {
 ...
 ```
 
-Bước 2: Thêm post 
+#### Bước 2: Thêm post 
 
 Trong _http://localhost:7000/admin/blog/posts_
 
 Chúng ta sẽ thêm post > 5 (số post trên 1 trang) để có ít nhất 2 trang
 
-Bước 3: Hiển thị dữ liệu
+#### Bước 3: Hiển thị dữ liệu
 
 Ta thấy blog được hiển thị ở trang chủ nên chúng ta sẽ chỉnh sửa trong _/features/dashboard/_
 
