@@ -4,7 +4,7 @@ module.exports = {
     /**
      * Uncomment to override config in development environment
      */
-    port: process.env.PORT || 7000,
+    port: process.env.PORT || 8000,
     db: {
        host: 'localhost',
        port: '5433',

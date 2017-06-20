@@ -502,7 +502,7 @@ Trong frontend:
 
 #### Bước 1: Chỉnh sửa số post trên 1 trang
 
-Đường dẫn: _/config/view.js_
+Mở file: _/config/view.js_
 
 Tìm đến 
 ```
@@ -520,7 +520,7 @@ Trong _http://localhost:7000/admin/blog/posts_
 
 Chúng ta sẽ thêm post > 5 (số post trên 1 trang) để có ít nhất 2 trang
 
-#### Bước 3: Hiển thị dữ liệu
+#### Bước 3: Hiển thị dữ liệu, phân trang
 
 Ta thấy blog được hiển thị ở trang chủ nên chúng ta sẽ chỉnh sửa trong _/features/dashboard/_
 
@@ -562,6 +562,7 @@ module.exports = function (controller, component, application) {
     };
 };
 ```
+Để có thể phân trang thì chúng ta cần 3 biến: 
 
 - page: Số trang hiện tại. Mặc định là 1.
 
@@ -569,7 +570,7 @@ module.exports = function (controller, component, application) {
 
 - totalPage: Tổng số trang
 
-- Dùng application để chạy function trong _/features/blog/actions/post.js_. Dùng Sequelize để lấy dữ liệu
+Dùng application để chạy function trong _/features/blog/actions/post.js_. Dùng Sequelize để lấy dữ liệu
 
 ``` 
 application.feature.blog.actions.findAndCountAll({
@@ -591,7 +592,7 @@ application.feature.blog.actions.findAndCountAll({
 
 Các câu lệnh truy vấn các bạn xem tại [Sequelize](http://docs.sequelizejs.com/manual/installation/getting-started.html)
 
-2) Hiển thị ra frontend
+2) Render ra frontend
 
 ```
 .then(data => {
@@ -606,12 +607,26 @@ Các câu lệnh truy vấn các bạn xem tại [Sequelize](http://docs.sequeli
 })
 ```
 
-- totalPage: tổng số trang
 - res.frontend.render: vì chúng ta có _frontend_ và _backend_, 2 cái đều render ra giao diện nên sẽ có 2 kiểu render _res.frontend.render_ và res.backend.render.
+
+3) Phân trang
+
+    Để web có thể lấy được page hiện tại thì ta sử dụng đường dẫn _/page/{số trang hiện tại}_
+    
+    Ta sẽ thêm vào router.js
+    ```
+    "/page/:page": {
+        get: {
+            handler: controller.index
+        }
+    }
+    ```
 
 3) Hiển thị dữ liệu frontend
 
 - Nội dung
+
+    Chúng ta dùng hàm _for_ để truy xuất từng phần tử
 ```
 {% for post in posts %}
 <article>
