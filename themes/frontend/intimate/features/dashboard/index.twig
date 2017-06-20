@@ -66,8 +66,11 @@
         <!-- Pagination Start -->
         <ul class="pager">
             <li class="previous">
-                <a href="#"><i class="ico-arrow-left"></i>
-                Previous</a>
+                {% if page > 1 %}
+                    <a href="/page/{{ page - 1 }}"><i class="ico-arrow-left"></i>Previous</a>
+                {% else %}
+                    <a href="javascipt:void(0)"><i class="ico-arrow-left"></i>Previous</a>
+                {% endif %}
             </li>
             <li style="list-style: none">
                 {% for i in range(1, totalPage + 1) %}
@@ -83,8 +86,11 @@
                 {% endfor %}
             </li>
             <li class="next">
-                <a href="#">Next <i class=
-                "ico-arrow-right"></i></a>
+                {% if page < totalPage %}
+                    <a href="/page/{{ page + 1 }}">Next <i class="ico-arrow-right"></i></a>
+                {% else %}
+                    <a href="javascript:void(0)">Next <i class="ico-arrow-right"></i></a>
+                {% endif %}
             </li>
         </ul><!-- Pagination End -->
     </article>

@@ -15,6 +15,7 @@ module.exports = {
         models.menu_detail.belongsTo(models.menu, {foreignKey: 'menu_id'});
         models.user.belongsTo(models.role, {foreignKey: 'role_id'});
         models.role.hasMany(models.user, {foreignKey: 'role_id'});
-        models.post.belongsTo(models.user, {foreignKey: "created_by"})
+        models.post.belongsTo(models.user, {foreignKey: "created_by"});
+        models.product.belongsTo(models.user, {foreignKey: 'created_by'});
     }
 };

@@ -139,7 +139,8 @@ module.exports = function (controller, component, application) {
                 title: 'Danh sách sản phẩm',
                 totalPage: 1,
                 items: null,
-                currentPage
+                currentPage: page,
+                toolbar: toolbar
             });
         });
     };
