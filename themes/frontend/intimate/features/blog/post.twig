@@ -1,0 +1,190 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <style>
+
+        .author .author-content {
+                width: calc(100% - 127px);
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 0;
+            float: none;
+        }
+
+        .author .author-img {
+            max-width: 120px;
+            height: initial;
+            /* border-radius: 50%; */
+            overflow: initial;
+            display: inline-block;
+            width: 30%;
+            display: inline-block;
+            float: none;
+        }
+    </style>
+    <!-- Content Start -->
+    <div class="single-post" id="">
+                    <!-- Blog Article Start-->
+                    <article class="single-post-content">
+
+                        {{ post.full_text | safe }}
+
+                    </article><!-- Blog Article End-->
+
+
+
+                    <!-- Blog Article Start -->
+                    <article>
+                        <div class="author">
+                            {% if post.user.user_image_url %}
+                            <div class="author-img">
+                                <img alt="" src="{{ post.user.user_image_url }}">
+                            </div>
+                            {% endif %}
+                            <div class="author-content">
+                                <h4>{{ post.user.display_name }}</h4>
+                                {{ post.user.user_registered | moment('DD-MM-YYYY') }} <br>
+                                {{ post.user.user_email }}
+                            </div>
+                        </div>
+                    </article><!-- Blog Article End -->
+                    <!-- Blog Article Start -->
+
+                    <!-- Blog Article Start -->
+                    <article>
+                        <!-- Start Respond Form -->
+                        <div id="respond">
+                            <h2 class="respond-title">Add Comment</h2>
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input class="form-control" id="author"
+                                        name="author" placeholder="Name" size=
+                                        "30" type="text" value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="form-control" id="email"
+                                        name="author" placeholder="Email" size=
+                                        "30" type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" cols=
+                                        "45" id="comment" name="comment"
+                                        placeholder="Comment" rows="8">
+</textarea> <a class="btn btn-common btn-more"
+                                        id="submit" type="submit"><i class=
+                                        "fa fa-check"></i> Submit Comment</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div><!-- End Respond Form -->
+                    </article><!-- Blog Article End -->
+                    <!-- Blog Article Start -->
+                    <article>
+                        <div class="relate-post">
+                            <h4>Releate Post</h4>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="posts-list">
+                                        <li>
+                                            <div class="widget-thumb">
+                                                <a href="#"><img alt="" src=
+                                                "img/post/post1.jpg"></a>
+                                            </div>
+                                            <div class="widget-content">
+                                                <a href="#">Aladdin rides
+                                                'magic carpet' at New York in
+                                                Halloween prank</a>
+                                                <div class="meta">
+                                                    <span><i class=
+                                                    "ico-calendar-alt-fill"></i>
+                                                    October 7,2015</span>
+                                                    <span><i class=
+                                                    "ico-tag"></i>
+                                                    Technology</span>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="posts-list">
+                                        <li>
+                                            <div class="widget-thumb">
+                                                <a href="#"><img alt="" src=
+                                                "img/post/post2.jpg"></a>
+                                            </div>
+                                            <div class="widget-content">
+                                                <a href="#">New Zealand makes
+                                                history by winning third Rugby
+                                                WC</a>
+                                                <div class="meta">
+                                                    <span><i class=
+                                                    "ico-calendar-alt-fill"></i>
+                                                    October 7,2015</span>
+                                                    <span><i class=
+                                                    "ico-tag"></i>
+                                                    Technology</span>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="posts-list">
+                                        <li>
+                                            <div class="widget-thumb">
+                                                <a href="#"><img alt="" src=
+                                                "img/post/post3.jpg"></a>
+                                            </div>
+                                            <div class="widget-content">
+                                                <a href="#">Romania calls for 3
+                                                days of mourning after
+                                                nightclub fire kills at least
+                                                27</a>
+                                                <div class="meta">
+                                                    <span><i class=
+                                                    "ico-calendar-alt-fill"></i>
+                                                    October 7,2015</span>
+                                                    <span><i class=
+                                                    "ico-tag"></i>
+                                                    Technology</span>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="posts-list">
+                                        <li>
+                                            <div class="widget-thumb">
+                                                <a href="#"><img alt="" src=
+                                                "img/post/post4.jpg"></a>
+                                            </div>
+                                            <div class="widget-content">
+                                                <a href="#">3 years of 'Star
+                                                Wars Episode VII' fandom,
+                                                celebrated</a>
+                                                <div class="meta">
+                                                    <span><i class=
+                                                    "ico-calendar-alt-fill"></i>
+                                                    October 7,2015</span>
+                                                    <span><i class=
+                                                    "ico-tag"></i>
+                                                    Technology</span>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article><!-- Blog Article End -->
+    </div><!-- Content End -->
+{% endblock %}

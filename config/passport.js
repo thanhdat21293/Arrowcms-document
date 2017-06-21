@@ -37,7 +37,7 @@ module.exports = function (passport, app) {
                             logger.error(err);
                             done(null, false);
                         }
-                        console.log(user_tmp)
+                        //console.log(user_tmp)
                         // Set expires 300 seconds
                         redis.setex(key, 300, JSON.stringify(user_tmp));
                         done(null, user_tmp);

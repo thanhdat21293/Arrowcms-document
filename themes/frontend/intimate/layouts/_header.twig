@@ -10,7 +10,7 @@
                 "icon-bar"></span> <span class="icon-bar"></span>
                 <span class="icon-bar"></span></button>
                 <div class="logo">
-                    <a class="navbar-brand" href="index.html"><i class=
+                    <a class="navbar-brand" href="/"><i class=
                     "ico-3dglasses"></i></a>
                 </div>
             </div><!-- Stat Search -->
@@ -87,15 +87,65 @@
     </nav><!-- Mobile Menu Start -->
 </header><!-- Header Section End -->
 <!-- Hero Area Start -->
-<section class="text-center" id="hero-area">
+
+{% if headerLayout === 'image' %}
+    <section class="text-center" id="hero-area">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="intro-area">
-                    <h3>Welcome To</h3>
-                    <h2 class="page-title">Intimate Blog</h2>
+                    <h2 class="page-title">{{ postTitle }}</h2>
                 </div>
             </div>
         </div>
     </div>
-</section><!-- Hero Area End -->
+</section>
+{% elif headerLayout === 'detailpost' %}
+    <section class="text-center" id="hero-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="intro-area">
+                        <h2 class="page-title">{{ postTitle }}</h2>
+                        <div class="entry-meta">
+                            <span class="meta-part">
+                                <i class="ico-user"></i>
+                                <a href="#">{{ post.user.display_name }}</a>
+                            </span>
+                            <span class="meta-part">
+                                <i class="ico-calendar-alt-fill"></i>
+                                <a href="#">{{ post.published_at | moment('MMMM D, YYYY') }}</a>
+                            </span>
+                            <span class="meta-part">
+                                <i class="ico-comments"></i>
+                                <a href="#">20</a>
+                            </span>
+                            <span class="meta-part">
+                                <i class="ico-tag"></i>
+                                <a href="#">Tech</a>
+                            </span>
+                            <span class="meta-part">
+                                <i class="ico-star"></i>
+                                <a href="#">7.5</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% else %}
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="entry-title">{{ postTitle }}</h2>
+                    <div class="breadcrumb">
+                        <a href="#"><i class="icon-home"></i> Home</a>
+                        <span class="crumbs-spacer"><i class="ico-fast-forward"></i></span> <span class="current">Contact Us</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

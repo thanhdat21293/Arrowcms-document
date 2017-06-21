@@ -27,7 +27,8 @@ module.exports = function (controller, component, application) {
                     posts: data.rows,
                     page: page,
                     itemOfPage: itemOfPage,
-                    totalPage: totalPage
+                    totalPage: totalPage,
+                    headerLayout: 'image'
                 })
             })
 

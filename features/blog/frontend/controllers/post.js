@@ -27,7 +27,8 @@ module.exports = function (controller, component, app) {
                     posts: posts.rows,
                     totalPage: totalPage,
                     currentPage: page,
-                    baseURL: '/blog/posts/page-{page}'
+                    baseURL: '/blog/posts/page-{page}',
+                    headerLayout: 'image'
                 });
             } else {
                 // Redirect to 404 if posts not exist
@@ -45,19 +46,22 @@ module.exports = function (controller, component, app) {
                 type: 'post',
                 published: 1
             },
-            raw: true
+            include: [{
+                model: app.models.user
+            }]
         }).then(function (post) {
             if (post) {
                 // Get id of category contain post
                 let ids = post.categories.split(':');
                 let category_ids = [];
                 if (ids.length > 0) {
-                    for (var i = 0; i < ids.length; i++) {
+                    for (let i = 0; i < ids.length; i++) {
                         if (Number(ids[i])) {
                             category_ids.push(Number(ids[i]));
                         }
                     }
                 }
+
                 // Query category contain post and render
                 app.feature.category.actions.findAll({
                     where: {
@@ -68,8 +72,10 @@ module.exports = function (controller, component, app) {
                 }).then(function (categories) {
                     // Render view
                     res.frontend.render('post', {
-                        post: post,
-                        categories: categories
+                        post: post.dataValues,
+                        categories: categories,
+                        headerLayout: 'detailpost',
+                        postTitle: post.title
                     });
                 });
             } else {
