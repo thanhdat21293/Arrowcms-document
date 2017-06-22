@@ -1,0 +1,30 @@
+<div class="entry-widget">
+
+    <h5 class="widget-title">{{ widget.title }}</h5>
+
+    <div class="tab-content">
+        <!-- Tab Content 1 -->
+        <div class="tab-pane in active fadeInDown" id="tab1">
+            <ul class="posts-list">
+                {% for post in posts %}
+                <li>
+                    <div class="widget-thumb">
+                        <a href="#"><img style="width: 70px;" alt="" src=
+                        "{{ post.image }}"></a>
+                    </div>
+                    <div class="widget-content">
+                        <a href="#">{{ post.title }}</a>
+                        <div class="meta">
+                            <span><i class=
+                            "ico-calendar-alt-fill"></i>
+                            {{ post.pusblish_at | moment('MMMM DD, YYYY') }}</span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div><!-- Tab Content 2 -->
+
+    </div><!-- End Tab Panels -->
+</div>

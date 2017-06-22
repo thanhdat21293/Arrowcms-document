@@ -50,6 +50,7 @@ module.exports = function (controller, component, app) {
                 model: app.models.user
             }]
         }).then(function (post) {
+
             if (post) {
                 // Get id of category contain post
                 let ids = post.categories.split(':');
@@ -71,12 +72,70 @@ module.exports = function (controller, component, app) {
                     }
                 }).then(function (categories) {
                     // Render view
-                    res.frontend.render('post', {
-                        post: post.dataValues,
-                        categories: categories,
-                        headerLayout: 'detailpost',
-                        postTitle: post.title
-                    });
+
+                        // let category_ids1 = [];
+                        // if (ids.length > 0) {
+                        //     for (let i = 0; i < ids.length; i++) {
+                        //         if (Number(ids[i])) {
+                        //             category_ids1.push(':' + ids[i] + ':');
+                        //         }
+                        //     }
+                        // }
+                        //console.log(category_ids1)
+
+                        // app.feature.blog.actions.find({
+                        //     where: {
+                        //         type: 'post',
+                        //         published: 1,
+                        //         categories: {
+                        //             //$like: '%:' + req.params.id + ':%'
+                        //             $like:{
+                        //                 $any: category_ids1
+                        //             }
+                        //         }
+                        //     },
+                        //     raw: true
+                        // }).then((data) => {
+                        //     console.log(data)
+                        // });
+
+                    if(category_ids.length > 0) {
+                        let sql = "SELECT * FROM arr_post WHERE ( ";
+                        let count = 0;
+                        ids.forEach((i) => {
+                            if (i > 0) {
+                                count++;
+                                if (count === 1) {
+                                    sql += " categories LIKE '%:" + i + ":%'";
+                                } else {
+                                    sql += " OR categories LIKE '%:" + i + ":%'";
+                                }
+                            }
+                        });
+
+                        sql += " ) AND id != " + postId + " ORDER BY published_at DESC LIMIT 4";
+
+                        app.models.rawQuery(sql).then((results) => {
+                            res.frontend.render('post', {
+                                post: post.dataValues,
+                                categories: categories,
+                                postTitle: post.title,
+                                headerLayout: 'detailpost',
+                                relatedPosts: results[0]
+                            });
+                        });
+                    }else{
+                        app.models.rawQuery(sql).then((results) => {
+                            res.frontend.render('post', {
+                                post: post.dataValues,
+                                categories: categories,
+                                postTitle: post.title,
+                                headerLayout: 'detailpost'
+                            });
+                        });
+                    }
+
+
                 });
             } else {
                 // Redirect to 404 if post not exist
@@ -181,7 +240,7 @@ module.exports = function (controller, component, app) {
                 include: [
                     {
                         model: app.models.user,
-                        attributes: ['id', 'display_name', 'user_login', 'user_email', 'user_image_url']
+                        attributes: ['id', 'display_name', 'user_email', 'user_image_url']
                     }
                 ],
                 where: {

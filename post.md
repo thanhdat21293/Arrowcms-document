@@ -178,7 +178,7 @@ controller.postDetail = function (req, res) {
     }
     ```
     
-- Lấy thông tin các categories
+- Lấy thông tin các categories (đã có trong code)
 
     ```
     app.feature.category.actions.findAll({
@@ -190,7 +190,7 @@ controller.postDetail = function (req, res) {
     })
     ```
 
-- Lấy thông tin user sử dụng
+- Lấy thông tin user sử dụng (cái này chưa có, cần thêm vào code)
     ```
     include: [{
                 model: app.models.user
@@ -225,7 +225,61 @@ Giao diện sau khi hoàn thành. Mỗi bài post sẽ có tiêu đề với n�
 
 ![post](upload/8.jpg)
 
+## Bài tập
 
+Hiển thị 4 Related post ở cuối trang chi tiết
+
+Các bước làm:
+
+##### Bước 1: Vào admin tạo Categories, mỗi category có khoảng 2-3 post chọn nó.
+
+##### Bước 2: Lấy tất cả cateogires của post hiện tại
+    
+Khi in ra sẽ thành dạng mảng: ví dụ
+```
+[1, 2, 3]
+```
+
+##### Bước 3: Dùng forEach để lấy từng phần tử của mảng để ghép vào câu lệnh SQL
+
+```
+arr.forEach((item) => {
+    console.log(item);
+})
+```
+
+##### Bước 4: Dùng raw Query để lấy những post có categories được lấy ở _Bước 2_
+
+Dùng câu lệnh raw query để lấy 
+
+ta sẽ dụng 1 biến để chưa câu lệnh sql
+
+```
+let sql = '';
+```
+
+Sử dụng vòng lặp + nối chuỗi để khi console.log(sql) thì kết quả kiểu như này:
+
+```
+SELECT * FROM arr_post WHERE categories LIKE '%:1:%' OR categories LIKE '%:2:%'
+```
+
+Dùng LIKE để tìm categories
+
+```
+https://www.w3schools.com/sql/sql_like.asp
+```
+
+
+Sau đó sẽ áp vào Raw Query
+
+```
+app.models.rawQuery(sql).then((results) => {
+    
+});
+```
+
+##### Bước 4: Hiển thị ra frontend
 
 
 
