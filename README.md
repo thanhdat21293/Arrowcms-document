@@ -5,3 +5,7 @@
 - [Post](https://github.com/thanhdat21293/Arrowcms-document/blob/master/post.md)
 
 - [Right sidebar](https://github.com/thanhdat21293/Arrowcms-document/blob/master/right_sidebar.md)
+
+- [Categories](https://github.com/thanhdat21293/Arrowcms-document/blob/master/categories.md)
+
+- [Page](https://github.com/thanhdat21293/Arrowcms-document/blob/master/page.md)
