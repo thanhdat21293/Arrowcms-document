@@ -210,7 +210,7 @@ module.exports = function (controller, component, app) {
                 data.created_by = author;
 
                 return blogAction.create(data, 'page').then(function (page) {
-                    page_id = post.id;
+                    page_id = page.id;
                     oldPage = page;
                     return null;
                 });
@@ -397,7 +397,7 @@ module.exports = function (controller, component, app) {
                 totalPage: totalPage,
                 items: items,
                 title_column: 'title',
-                link_template: '/{alias}'
+                link_template: '/blog/{alias}'
             });
         });
     }

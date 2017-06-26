@@ -9,11 +9,11 @@
                 {% for post in posts %}
                 <li>
                     <div class="widget-thumb">
-                        <a href="#"><img style="width: 70px;" alt="" src=
+                        <a href="/blog/posts/{{ post.id }}/{{ post.alias }}"><img style="width: 70px;" alt="" src=
                         "{{ post.image }}"></a>
                     </div>
                     <div class="widget-content">
-                        <a href="#">{{ post.title }}</a>
+                        <a href="/blog/posts/{{ post.id }}/{{ post.alias }}">{{ post.title }}</a>
                         <div class="meta">
                             <span><i class=
                             "ico-calendar-alt-fill"></i>

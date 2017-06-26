@@ -9,3 +9,6 @@
 - [Categories](https://github.com/thanhdat21293/Arrowcms-document/blob/master/categories.md)
 
 - [Page](https://github.com/thanhdat21293/Arrowcms-document/blob/master/page.md)
+
+- [Contact sendmail](https://github.com/thanhdat21293/Arrowcms-document/blob/master/contact_sendmail.md)
+

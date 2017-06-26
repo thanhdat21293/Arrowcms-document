@@ -10,7 +10,7 @@ module.exports = {
     viewExtension: 'twig',
     pagination: {
         numberItem: 5,
-        frontNumberItem: 5
+        frontNumberItem: 1
     },
     autoSaveDelay: 10,
     dateFormat: 'YYYY-MM-DD',

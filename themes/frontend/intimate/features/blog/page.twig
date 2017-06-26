@@ -1,0 +1,258 @@
+{% extends "_layout.twig" %}
+
+{% block post %}
+    {% if layout === 'Contact' %}
+
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    <!-- Contact Info Start -->
+                    <div class="contact-info-wrapper clearfix">
+                        <div class="col-md-4">
+                            <div class="contact-item-wrapper">
+                                <div class="icon">
+                                    <i class="ico-call"></i>
+                                </div>
+                                <h4>Phone</h4>
+                                <p>Phone: 01:(0091) 8545 536245<br>
+                                Phone(02):(088) 1925242</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-item-wrapper bl">
+                                <div class="icon">
+                                    <i class="ico-location_on"></i>
+                                </div>
+                                <h4>Address</h4>
+                                <p>5th Floor, Ah Building, 756 New Design St<br>
+                                Melbourne, Australia.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-item-wrapper">
+                                <div class="icon">
+                                    <i class="ico-email"></i>
+                                </div>
+                                <h4>EMAIL</h4>
+                                <p>info@graygrids.com<br>
+                                admin@wingthemes.com</p>
+                            </div>
+                        </div>
+                    </div><!-- Contact Info End -->
+                    <div class="col-md-8 col-md-offset-2 contact-form">
+                        <form class="shake" data-toggle="validator" name="contactForm" role="form" method="post">
+                            {% if checkSendMail %}
+                            <div class="col-md-12">
+                                <div class="alert alert-success" role="alert">
+                                    {{ checkSendMail }}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input class="form-control" data-error=
+                                    "Please enter your name" id="name" placeholder=
+                                    "Your Name" required="" type="text" name="name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" data-error=
+                                    "Please enter your email" id="email"
+                                    placeholder="Your Email" required="" type=
+                                    "email" name="email">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" data-error=
+                                    "Please enter your message subject" id=
+                                    "msg_subject" placeholder="Subject" required=""
+                                    type="text" name="title">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" data-error=
+                                    "Write your message" id="message" placeholder=
+                                    "Message" required="" rows="5" name="message"></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-common btn-sn" id="submit"
+                                type="submit" name="contact">Send Message</button>
+                                <div class="h3 text-center hidden" id="msgSubmit">
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Content End -->
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7220.733285878035!2d105.84390292856433!3d21.019282732700503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab8ea079c829%3A0x1a3ebe79efa873b2!2sTechmaster+Vietnam!5e0!3m2!1sen!2s!4v1498204671921" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    {% else %}
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    {% if item.image %}
+                        <a data-lightbox="roadtrip" href="{{ item.image }}">
+                            <img src="{{ item.image }}">
+                        </a>
+                        <br>
+                        <br>
+                    {% endif %}
+
+                    {{ item.full_text | safe }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+    <script src="/frontend/intimate/assets/js/form-validator.min.js" type="text/javascript">
+    </script>
+    <script src="/frontend/intimate/assets/js/contact-form-script.js" type="text/javascript">
+    </script>
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false">
+    </script> <!-- Google Maps JS Only for Contact Pages -->
+
+    <script type="text/javascript">
+    let map;
+    let plain = new google.maps.LatLng(40.7863882,-73.9706539,13);
+    let mapCoordinates = new google.maps.LatLng(40.7863882,-73.9706539,13);
+
+
+    let markers = [];
+    let image = new google.maps.MarkerImage(
+      '/frontend/intimate/assets/img/map-marker.png',
+      new google.maps.Size(84, 70),
+      new google.maps.Point(0, 0),
+      new google.maps.Point(60, 60)
+    );
+
+    function addMarker() {
+      markers.push(new google.maps.Marker({
+        position: plain,
+        raiseOnDrag: false,
+        icon: image,
+        map: map,
+        draggable: false
+        }
+      ));
+    }
+
+    function initialize() {
+      var mapOptions = {
+        backgroundColor: "#ffffff",
+        zoom: 15,
+        disableDefaultUI: true,
+        center: mapCoordinates,
+        zoomControl: false,
+        scaleControl: false,
+        scrollwheel: false,
+        disableDoubleClickZoom: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [{
+          "featureType": "landscape.natural",
+          "elementType": "geometry.fill",
+          "stylers": [{
+            "color": "#ffffff"
+          }
+                     ]
+        }
+         , {
+           "featureType": "landscape.man_made",
+           "stylers": [{
+             "color": "#ffffff"
+           }
+                       , {
+                         "visibility": "off"
+                       }
+                      ]
+         }
+         , {
+           "featureType": "water",
+           "stylers": [{
+             "color": "#80C8E5"
+           }
+                       , {
+                         "saturation": 0
+                       }
+                      ]
+         }
+         , {
+           "featureType": "road.arterial",
+           "elementType": "geometry",
+           "stylers": [{
+             "color": "#999999"
+           }
+                      ]
+         }
+         , {
+           "elementType": "labels.text.stroke",
+           "stylers": [{
+             "visibility": "off"
+           }
+                      ]
+         }
+         , {
+           "elementType": "labels.text",
+           "stylers": [{
+             "color": "#333333"
+           }
+                      ]
+         }
+
+         , {
+           "featureType": "road.local",
+           "stylers": [{
+             "color": "#dedede"
+           }
+                      ]
+         }
+         , {
+           "featureType": "road.local",
+           "elementType": "labels.text",
+           "stylers": [{
+             "color": "#666666"
+           }
+                      ]
+         }
+         , {
+           "featureType": "transit.station.bus",
+           "stylers": [{
+             "saturation": -57
+           }
+                      ]
+         }
+         , {
+           "featureType": "road.highway",
+           "elementType": "labels.icon",
+           "stylers": [{
+             "visibility": "off"
+           }
+                      ]
+         }
+         , {
+           "featureType": "poi",
+           "stylers": [{
+             "visibility": "off"
+           }
+                      ]
+         }
+
+        ]
+
+      }
+        ;
+      map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+      addMarker();
+
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% macro render_child(mn, menu_data ,isSubMenus) %}
     {% if mn.children.length > 0 %}
-        <li class="dropdown dropdown-toggle active">
+        <li class="dropdown dropdown-toggle">
             <a href="{{ menu_data.link }}" {% if not isSubMenus %} class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown"{% endif %}>
                 {{ menu_data.name }} {% if not isSubMenus %}<i class="fa fa-angle-down"></i>{% endif %}
             </a>

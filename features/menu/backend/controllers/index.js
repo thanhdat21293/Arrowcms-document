@@ -1,10 +1,10 @@
 'use strict';
 
-let _ = require('arrowjs')._;
-let promise = require('arrowjs').Promise;
-let fs = require("fs");
-let readFileAsync = promise.promisify(fs.readFile);
-let logger = require('arrowjs').logger;
+const _ = require('arrowjs')._;
+const promise = require('arrowjs').Promise;
+const fs = require("fs");
+const readFileAsync = promise.promisify(fs.readFile);
+const logger = require('arrowjs').logger;
 
 module.exports = function (controller, component, app) {
 

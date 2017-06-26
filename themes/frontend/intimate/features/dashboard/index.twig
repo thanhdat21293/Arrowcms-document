@@ -87,7 +87,7 @@
             </li>
             <li class="next">
                 {% if page < totalPage %}
-                    <a href="/page/{{ page + 1 }}">Next <i class="ico-arrow-right"></i></a>
+                    <a href="/page/{{ (page | float) + 1 }}">Next <i class="ico-arrow-right"></i></a>
                 {% else %}
                     <a href="javascript:void(0)">Next <i class="ico-arrow-right"></i></a>
                 {% endif %}

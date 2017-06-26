@@ -125,13 +125,11 @@ module.exports = function (controller, component, app) {
                             });
                         });
                     }else{
-                        app.models.rawQuery(sql).then((results) => {
-                            res.frontend.render('post', {
-                                post: post.dataValues,
-                                categories: categories,
-                                postTitle: post.title,
-                                headerLayout: 'detailpost'
-                            });
+                        res.frontend.render('post', {
+                            post: post.dataValues,
+                            categories: categories,
+                            postTitle: post.title,
+                            headerLayout: 'detailpost'
                         });
                     }
 
@@ -262,7 +260,9 @@ module.exports = function (controller, component, app) {
                     numberOfPost: result[0].rows.length,
                     totalPage: totalPage,
                     currentPage: page,
-                    baseURL: '/blog/posts/categories/' + alias + '/' + id + '/page-:page([0-9]+)?(/)?',
+                    baseURL: '/blog/posts/categories/' + alias + '/' + id + '',
+                    headerLayout: 'image',
+                    postTitle: 'Category: ' + result[1][0].name
                 });
             } else {
                 // Redirect to 404 if post not exist

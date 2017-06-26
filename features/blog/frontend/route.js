@@ -66,6 +66,9 @@ module.exports = function (component) {
         "/blog/:alias([a-zA-Z0-9-]+)(/)?": {
             get: {
                 handler: controller.pageIndex
+            },
+            post: {
+                handler: controller.pageSubmit
             }
         }
 
