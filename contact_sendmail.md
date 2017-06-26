@@ -4,7 +4,6 @@
 
 ```
 npm i nodemailer
-npm i xoauth2
 ```
 
 Vào (https://myaccount.google.com/security) kéo xuống cuối trang rồi 'Bật' Cho phép ứng dụng kém an toàn.
