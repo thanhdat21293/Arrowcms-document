@@ -111,10 +111,13 @@ res.frontend.render('page', {
 #### Bước 4: Kiểm tra
 
 Nội dung gửi 
+
 ![Noi dung gui](upload/23.jpg)
 
 Gửi thành công
+
 ![Thanh cong](upload/22.jpg)
 
 Kết quả
+
 ![ket qua](upload/24.jpg)
