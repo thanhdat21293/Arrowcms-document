@@ -81,3 +81,13 @@ Gợi ý: ở trong folder: _/themes/backend/_
 
 ![language](upload/25.jpg)
 
+Highlight code ở frontend
+
+Vì thiếu 1 số file css, js nên chưa hiển thị đẹp
+
+Các bạn vào [đây](https://techmaster.vn/posts/34368/xay-dung-ung-dung-nodejs-voi-typescript) để lấy các file css, js về.
+
+Sau khi hoàn thành:
+
+![abc](upload/26.jpg)
+
