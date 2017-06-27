@@ -71,7 +71,7 @@ module.exports = function (controller, component, application) {
 
 [Trang index: Features Items, Product tab theo categories, Recommended items](https://github.com/thanhdat21293/Arrowcms-document/blob/master/shopIndex.md)
 
-Bài anh Cường giao:
+## Bài anh Cường giao:
 
 Thêm options cho phần language ở Ckeditor nhé
 
