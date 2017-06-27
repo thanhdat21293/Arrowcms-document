@@ -21,5 +21,63 @@ Xong phần tạo blog, page, categories, submit form, Send email.
 
 #### Thêm theme Eshop vào ArrowCMS. Hướng dẫn: [add new theme](https://github.com/thanhdat21293/Arrowcms-document/blob/master/blog.md)
 
-#### 
+#### Tạo folders/files cần thiết cho frontend shop
+
+Trong folder _/features/products/_
+
+```
+.
+└── frontend
+    ├── controllers
+        └──product.js
+    └── route.js
+```
+
+Code ban đầu cho file _route.js_
+
+```
+'use strict';
+
+module.exports = function (component) {
+    let comp = component.controllers.frontend;
+
+    return {
+
+        //Route o day
+
+
+    }
+};
+```
+
+Code ban đầu cho file _product.js_
+
+```
+'use strict';
+
+const promise = require('arrowjs').Promise;
+
+module.exports = function (controller, component, application) {
+
+    let redis = application.redisClient;
+    let adminPrefix = application.getConfig('admin_prefix') || 'admin';
+    let redisPrefix = application.getConfig('redis_prefix') || 'arrowCMS_';
+    let itemOfPage = application.getConfig('pagination').numberItem || 10;
+    
+    //Controllers xử lý ở đây
+    
+};
+```
+
+[Trang index: Features Items, Product tab theo categories, Recommended items](https://github.com/thanhdat21293/Arrowcms-document/blob/master/shopIndex.md)
+
+Bài anh Cường giao:
+
+Thêm options cho phần language ở Ckeditor nhé
+
+Mình đã thêm được
+
+Gợi ý: ở trong folder: _/themes/backend/_
+
+![language](upload/25.jpg)
 
